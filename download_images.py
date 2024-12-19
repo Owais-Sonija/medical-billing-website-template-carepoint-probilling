@@ -12,44 +12,44 @@ class ImageDownloader:
         # Predefined list of medical-related stock photos from a reliable CDN
         self.images = [
             {
-                'url': 'https://images.unsplash.com/photo-1516549655169-df83a0774514',
-                'name': 'medical-team-meeting'
+                'url': 'https://images.unsplash.com/photo-1630092152293-7499ea2fc7e2',
+                'name': 'medical-billing-specialist'
+            },
+            {
+                'url': 'https://images.unsplash.com/photo-1581497396202-5645e76a3a8e',
+                'name': 'healthcare-finance'
+            },
+            {
+                'url': 'https://images.unsplash.com/photo-1590650153855-d9e808231d41',
+                'name': 'medical-paperwork'
+            },
+            {
+                'url': 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3',
+                'name': 'office-analytics'
+            },
+            {
+                'url': 'https://images.unsplash.com/photo-1557804506-669a67965ba0',
+                'name': 'healthcare-laptop'
             },
             {
                 'url': 'https://images.unsplash.com/photo-1576091160550-2173dba999ef',
-                'name': 'doctor-using-computer'
+                'name': 'doctor-computer-work'
             },
             {
-                'url': 'https://images.unsplash.com/photo-1587691592099-24045742c181',
+                'url': 'https://images.unsplash.com/photo-1590650046871-92c887180603',
                 'name': 'medical-consultation'
             },
             {
-                'url': 'https://images.unsplash.com/photo-1579684385127-1ef15d508118',
+                'url': 'https://images.unsplash.com/photo-1543269664-56d93c1b41a6',
+                'name': 'healthcare-team'
+            },
+            {
+                'url': 'https://images.unsplash.com/photo-1576670759896-0e8959bfe87d',
+                'name': 'medical-office-desk'
+            },
+            {
+                'url': 'https://images.unsplash.com/photo-1581092160562-40aa08e78837',
                 'name': 'healthcare-technology'
-            },
-            {
-                'url': 'https://images.unsplash.com/photo-1581056771107-24ca5f033842',
-                'name': 'medical-records'
-            },
-            {
-                'url': 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634',
-                'name': 'medical-billing-desk'
-            },
-            {
-                'url': 'https://images.unsplash.com/photo-1638202993928-7d113b8e4439',
-                'name': 'healthcare-admin'
-            },
-            {
-                'url': 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133',
-                'name': 'medical-office'
-            },
-            {
-                'url': 'https://images.unsplash.com/photo-1582750433449-648ed127bb54',
-                'name': 'doctor-tablet'
-            },
-            {
-                'url': 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d',
-                'name': 'medical-professional'
             }
         ]
 

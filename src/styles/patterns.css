@@ -1,0 +1,28 @@
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+    linear-gradient(to bottom, #e5e7eb 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-dots-pattern {
+  background-image: radial-gradient(#e5e7eb 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(-45deg, #60a5fa, #3b82f6, #2563eb, #1d4ed8);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}

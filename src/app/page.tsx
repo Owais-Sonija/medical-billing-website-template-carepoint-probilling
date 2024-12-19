@@ -3,10 +3,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FiCheckCircle, FiDollarSign, FiClock, FiShield } from 'react-icons/fi';
+import { FiCheckCircle, FiDollarSign, FiClock, FiShield, FiArrowRight } from 'react-icons/fi';
 import Button from '@/components/Button';
 import ServiceCard from '@/components/ServiceCard';
 import Card from '@/components/Card';
+import Section from '@/components/Section';
+import Container from '@/components/Container';
+import Heading from '@/components/Heading';
+import TestimonialSection from '@/components/TestimonialSection';
+import StatsSection from '@/components/StatsSection';
 
 export default function Home() {
   const services = [
@@ -50,31 +55,39 @@ export default function Home() {
     },
   ];
 
-  return (
-    <main>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/medical-professional.jpg"
-            alt="Medical professional"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-800/50" />
-        </div>
+  const stats = [
+    { number: '98%', label: 'Claims Acceptance Rate' },
+    { number: '40%', label: 'Cost Reduction' },
+    { number: '24h', label: 'Average Response Time' },
+    { number: '15k+', label: 'Healthcare Providers' },
+  ];
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32">
+  return (
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <Section className="bg-gradient-to-br from-primary-50 via-white to-secondary-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-5" />
+        <Container className="relative">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/images/medical-professional.jpg"
+              alt="Medical professional"
+              fill
+              className="object-cover"
+              priority
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-900/95 to-primary-800/80" />
+          </div>
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <Heading level={1} color="light" className="mb-6">
               Streamline Your Medical Billing Process
-            </h1>
+            </Heading>
             <p className="text-xl text-white/90 mb-8">
               Professional medical billing services that help healthcare providers maximize revenue
               and reduce administrative burden.
@@ -86,30 +99,23 @@ export default function Home() {
               </Button>
             </div>
           </motion.div>
-        </div>
-      </section>
+        </Container>
+      </Section>
+
+      {/* Stats Section */}
+      <StatsSection />
 
       {/* Services Section */}
-      <section className="py-20 bg-neutral-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section className="bg-white relative">
+        <div className="absolute inset-0 bg-dots-pattern opacity-5" />
+        <Container>
           <div className="text-center mb-16">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-3xl font-bold text-neutral-900 mb-4"
-            >
+            <Heading level={2} align="center" withAccent>
               Our Services
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="text-lg text-neutral-600"
-            >
+            </Heading>
+            <p className="text-lg text-neutral-600 mt-4">
               Comprehensive medical billing solutions tailored to your needs
-            </motion.p>
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -125,22 +131,22 @@ export default function Home() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
       {/* Features Section */}
-      <section className="py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Section color="white">
+        <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-3xl font-bold text-neutral-900 mb-6">
+              <Heading level={2} withAccent>
                 Why Choose Our Medical Billing Services?
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              </Heading>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-8">
                 {features.map((feature, index) => (
                   <motion.div
                     key={feature.title}
@@ -165,7 +171,7 @@ export default function Home() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative h-[600px] rounded-lg overflow-hidden"
+              className="relative h-[600px] rounded-lg overflow-hidden shadow-2xl"
             >
               <Image
                 src="/images/medical-billing-desk.jpg"
@@ -173,41 +179,37 @@ export default function Home() {
                 fill
                 className="object-cover"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary-900/20 to-transparent" />
             </motion.div>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
+
+      {/* Testimonials Section */}
+      <TestimonialSection />
 
       {/* CTA Section */}
-      <section className="relative py-20 bg-primary-900">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/images/medical-team-meeting.jpg"
-            alt="Medical team meeting"
-            fill
-            className="object-cover opacity-10"
-          />
-        </div>
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <Section className="bg-primary-900 text-white">
+        <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
           >
-            <h2 className="text-3xl font-bold text-white mb-6">
-              Ready to Optimize Your Medical Billing?
-            </h2>
-            <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Join thousands of healthcare providers who trust us with their medical billing needs.
-            </p>
-            <Link href="/contact">
-              <Button size="lg" variant="secondary">
-                Contact Us Today
-              </Button>
-            </Link>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Streamline Your Medical Billing?</h2>
+            <p className="text-lg text-primary-100 mb-8">Join hundreds of satisfied healthcare providers who trust our services</p>
+            <Button
+              variant="secondary"
+              size="lg"
+              className="group"
+            >
+              Get Started Today
+              <FiArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+            </Button>
           </motion.div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </main>
   );
 }
