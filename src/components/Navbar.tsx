@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
+import DarkModeToggle from './DarkModeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,9 +63,9 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className={`text-xl font-bold ${
+            <span className={`text-lg font-bold ${
               isScrolled
-                ? 'text-primary-600 dark:text-primary-400'
+                ? 'text-neutral-800 dark:text-neutral-200'
                 : 'text-white'
             }`}>
               MedBill Pro
@@ -72,42 +73,31 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-4">
-            {navLinks.map(({ href, label }) => (
-              <Link key={href} href={href} className={linkClasses(href)}>
-                {label}
-                {pathname === href && (
-                  <motion.div
-                    className="absolute bottom-0 left-0 h-0.5 w-full bg-primary-500"
-                    layoutId="navbar-underline"
-                  />
-                )}
+          <div className="hidden md:flex md:items-center md:space-x-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={linkClasses(link.href)}
+              >
+                {link.label}
               </Link>
             ))}
-            <Link
-              href="/contact"
-              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 
-                ${
-                  isScrolled
-                    ? 'bg-primary-500 text-white hover:bg-primary-600'
-                    : 'bg-white text-neutral-900 hover:bg-neutral-100'
-                }`}
-            >
-              Get Started
-            </Link>
+            <DarkModeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="flex items-center space-x-4 md:hidden">
+            <DarkModeToggle />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 ${
+              className={`p-2 rounded-lg ${
                 isScrolled
                   ? 'text-neutral-800 dark:text-neutral-200'
                   : 'text-white'
               }`}
             >
-              {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
+              {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
             </button>
           </div>
         </div>
@@ -117,38 +107,26 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.2 }}
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
             className={mobileMenuClasses}
           >
-            <div className="px-4 pt-2 pb-4 space-y-1">
-              {navLinks.map(({ href, label }) => (
+            <div className="px-4 pt-2 pb-3 space-y-1">
+              {navLinks.map((link) => (
                 <Link
-                  key={href}
-                  href={href}
-                  className={`block px-3 py-2 rounded-lg text-base font-medium ${
+                  key={link.href}
+                  href={link.href}
+                  className={`block px-3 py-2 text-base font-medium ${
                     isScrolled
-                      ? 'text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800'
-                      : 'text-neutral-100 hover:bg-white/10'
-                  } ${pathname === href ? 'bg-primary-500/10 text-primary-600 dark:text-primary-400' : ''}`}
+                      ? 'text-neutral-800 dark:text-neutral-200'
+                      : 'text-white'
+                  }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {label}
+                  {link.label}
                 </Link>
               ))}
-              <Link
-                href="/contact"
-                className={`block px-3 py-2 rounded-lg text-base font-medium ${
-                  isScrolled
-                    ? 'bg-primary-500 text-white hover:bg-primary-600'
-                    : 'bg-white text-neutral-900 hover:bg-neutral-100'
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                Get Started
-              </Link>
             </div>
           </motion.div>
         )}
