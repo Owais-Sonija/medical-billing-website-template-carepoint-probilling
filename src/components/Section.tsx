@@ -8,6 +8,7 @@ interface SectionProps {
   className?: string;
   fullWidth?: boolean;
   color?: 'white' | 'light' | 'primary' | 'dark';
+  id?: string;
 }
 
 const Section = ({
@@ -15,6 +16,7 @@ const Section = ({
   className = '',
   fullWidth = false,
   color = 'white',
+  id,
 }: SectionProps) => {
   const MotionSection = motion.section;
 
@@ -31,6 +33,7 @@ const Section = ({
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
+      id={id}
       className={`py-16 md:py-24 ${colorClasses[color]} ${className}`}
     >
       <div className={`${fullWidth ? 'w-full' : 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'}`}>
