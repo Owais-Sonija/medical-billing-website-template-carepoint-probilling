@@ -4,8 +4,16 @@ export default function About() {
   return (
     <main>
       {/* Hero Section */}
-      <section className="bg-blue-700 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative bg-blue-700 text-white py-16">
+        <div className="absolute inset-0 z-0 overflow-hidden">
+          <Image
+            src="/images/medical-professional.jpg"
+            alt="Medical professional"
+            fill
+            className="object-cover opacity-20"
+          />
+        </div>
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">About MedBill Pro</h1>
             <p className="text-xl text-blue-100">
@@ -47,12 +55,29 @@ export default function About() {
             </div>
             <div className="relative h-[400px] rounded-lg overflow-hidden">
               <Image
-                src="/placeholder-about.jpg"
+                src="/images/medical-records.jpg"
                 alt="Medical billing professionals at work"
                 fill
-                style={{ objectFit: "cover" }}
+                className="object-cover"
               />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Team Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-12">
+            Our Expert Team
+          </h2>
+          <div className="relative h-[300px] rounded-lg overflow-hidden">
+            <Image
+              src="/images/medical-team-meeting.jpg"
+              alt="Our medical billing team"
+              fill
+              className="object-cover"
+            />
           </div>
         </div>
       </section>
