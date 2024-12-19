@@ -29,13 +29,31 @@ const Navbar = () => {
 
   const navbarClasses = `
     fixed w-full z-50 transition-all duration-300
-    ${isScrolled ? 'bg-white shadow-soft py-2' : 'bg-transparent py-4'}
+    ${
+      isScrolled
+        ? 'bg-white/95 dark:bg-neutral-900/95 backdrop-blur-lg border-b border-neutral-200 dark:border-neutral-800'
+        : 'bg-neutral-900/50 backdrop-blur-sm'
+    }
   `;
 
   const linkClasses = (href: string) => `
     relative px-3 py-2 text-sm font-medium transition-colors duration-200
-    ${isScrolled ? 'text-neutral-700 hover:text-primary-600' : 'text-white hover:text-primary-200'}
+    ${
+      isScrolled
+        ? 'text-neutral-800 dark:text-neutral-200 hover:text-primary-600 dark:hover:text-primary-400'
+        : 'text-neutral-100 hover:text-white'
+    }
     ${pathname === href ? 'font-semibold' : ''}
+  `;
+
+  const mobileMenuClasses = `
+    absolute top-full left-0 w-full transform transition-all duration-300 ease-in-out
+    ${
+      isScrolled
+        ? 'bg-white/95 dark:bg-neutral-900/95 border-b border-neutral-200 dark:border-neutral-800'
+        : 'bg-neutral-900/95'
+    }
+    backdrop-blur-lg shadow-lg
   `;
 
   return (
@@ -44,7 +62,11 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <span className={`text-xl font-bold ${isScrolled ? 'text-primary-600' : 'text-white'}`}>
+            <span className={`text-xl font-bold ${
+              isScrolled
+                ? 'text-primary-600 dark:text-primary-400'
+                : 'text-white'
+            }`}>
               MedBill Pro
             </span>
           </Link>
@@ -64,13 +86,12 @@ const Navbar = () => {
             ))}
             <Link
               href="/contact"
-              className={`
-                ml-4 px-4 py-2 rounded-md font-medium transition-all duration-200
-                ${isScrolled
-                  ? 'bg-primary-500 text-white hover:bg-primary-600'
-                  : 'bg-white text-primary-600 hover:bg-primary-50'
-                }
-              `}
+              className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 
+                ${
+                  isScrolled
+                    ? 'bg-primary-500 text-white hover:bg-primary-600'
+                    : 'bg-white text-neutral-900 hover:bg-neutral-100'
+                }`}
             >
               Get Started
             </Link>
@@ -80,7 +101,11 @@ const Navbar = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-md ${isScrolled ? 'text-neutral-700' : 'text-white'}`}
+              className={`p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 ${
+                isScrolled
+                  ? 'text-neutral-800 dark:text-neutral-200'
+                  : 'text-white'
+              }`}
             >
               {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
             </button>
@@ -92,23 +117,22 @@ const Navbar = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className={mobileMenuClasses}
           >
-            <div className="px-2 pt-2 pb-3 space-y-1">
+            <div className="px-4 pt-2 pb-4 space-y-1">
               {navLinks.map(({ href, label }) => (
                 <Link
                   key={href}
                   href={href}
-                  className={`
-                    block px-3 py-2 rounded-md text-base font-medium
-                    ${pathname === href
-                      ? 'bg-primary-50 text-primary-600'
-                      : 'text-neutral-700 hover:bg-neutral-50'
-                    }
-                  `}
+                  className={`block px-3 py-2 rounded-lg text-base font-medium ${
+                    isScrolled
+                      ? 'text-neutral-800 dark:text-neutral-200 hover:bg-neutral-100 dark:hover:bg-neutral-800'
+                      : 'text-neutral-100 hover:bg-white/10'
+                  } ${pathname === href ? 'bg-primary-500/10 text-primary-600 dark:text-primary-400' : ''}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {label}
@@ -116,7 +140,11 @@ const Navbar = () => {
               ))}
               <Link
                 href="/contact"
-                className="block px-3 py-2 rounded-md text-base font-medium bg-primary-500 text-white hover:bg-primary-600"
+                className={`block px-3 py-2 rounded-lg text-base font-medium ${
+                  isScrolled
+                    ? 'bg-primary-500 text-white hover:bg-primary-600'
+                    : 'bg-white text-neutral-900 hover:bg-neutral-100'
+                }`}
                 onClick={() => setIsOpen(false)}
               >
                 Get Started
