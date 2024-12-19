@@ -1,18 +1,44 @@
+'use client';
+
+import { motion, HTMLMotionProps } from 'framer-motion';
+import Card from './Card';
+
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
+  icon: string;
 }
 
 const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
+  const MotionDiv = motion.div;
+
   return (
-    <div className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-      <div className="text-blue-500 mb-4 text-3xl">
-        {icon}
-      </div>
-      <h3 className="text-xl font-semibold text-gray-800 mb-2">{title}</h3>
-      <p className="text-gray-600">{description}</p>
-    </div>
+    <Card className="p-6 shadow-soft">
+      <MotionDiv
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="flex flex-col items-center text-center">
+          <div className="w-16 h-16 bg-primary-50 rounded-full flex items-center justify-center mb-4">
+            <span className="text-3xl">{icon}</span>
+          </div>
+          <h3 className="text-xl font-semibold text-neutral-800 mb-2">{title}</h3>
+          <p className="text-neutral-600">{description}</p>
+        </div>
+
+        <div className="mt-4 w-full h-1 bg-primary-100 rounded-full overflow-hidden">
+          <MotionDiv
+            className="h-full bg-primary-500"
+            initial={{ width: 0 }}
+            whileInView={{ width: '100%' }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          />
+        </div>
+      </MotionDiv>
+    </Card>
   );
 };
 
