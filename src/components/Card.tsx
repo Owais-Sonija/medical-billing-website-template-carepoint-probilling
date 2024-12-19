@@ -3,25 +3,19 @@
 import { ReactNode } from 'react';
 import { motion, HTMLMotionProps } from 'framer-motion';
 
-interface CardProps {
+interface CardProps extends HTMLMotionProps<'div'> {
   children: ReactNode;
   className?: string;
-  hover?: boolean;
 }
 
-const Card = ({ children, className = '', hover = true }: CardProps) => {
+const Card = ({ children, className = '', ...props }: CardProps) => {
   const MotionDiv = motion.div;
-  const baseStyles = 'bg-white rounded-lg overflow-hidden';
-  const hoverStyles = hover
-    ? 'transition-all duration-300 hover:shadow-hover transform hover:-translate-y-1'
-    : '';
 
   return (
     <MotionDiv
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`${baseStyles} ${hoverStyles} ${className}`}
+      {...props}
+      className={`bg-white dark:bg-neutral-800 rounded-xl shadow-lg transition-all duration-200 
+        hover:shadow-xl dark:shadow-neutral-900/30 ${className}`}
     >
       {children}
     </MotionDiv>

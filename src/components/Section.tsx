@@ -21,10 +21,10 @@ const Section = ({
   const MotionSection = motion.section;
 
   const colorClasses = {
-    white: 'bg-white',
-    light: 'bg-neutral-50',
-    primary: 'bg-primary-900 text-white',
-    dark: 'bg-neutral-900 text-white',
+    white: 'bg-white dark:bg-neutral-900',
+    light: 'bg-neutral-50 dark:bg-neutral-800',
+    primary: 'bg-primary-900 text-white dark:bg-primary-800 dark:text-neutral-100',
+    dark: 'bg-neutral-900 text-white dark:bg-neutral-950 dark:text-neutral-100',
   };
 
   return (

@@ -11,7 +11,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden dark:bg-neutral-900">
       {/* Background Image with Gradient Overlay */}
       <div className="absolute inset-0 z-0">
         <Image
@@ -22,7 +22,7 @@ const Hero = () => {
           priority
           quality={100}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/70 via-neutral-900/50 to-neutral-900/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/70 via-neutral-900/50 to-neutral-900/80 dark:from-neutral-50/70 dark:via-neutral-50/50 dark:to-neutral-50/80" />
       </div>
 
       {/* Content Container */}
@@ -34,15 +34,15 @@ const Hero = () => {
           className="space-y-8"
         >
           {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white dark:text-neutral-100 tracking-tight">
             <span className="block">Streamline Your</span>
-            <span className="block mt-2 bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent">
+            <span className="block mt-2 bg-gradient-to-r from-primary-400 to-primary-600 bg-clip-text text-transparent dark:bg-gradient-to-r dark:from-primary-400 dark:to-primary-600">
               Medical Billing Process
             </span>
           </h1>
 
           {/* Subheading */}
-          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-neutral-200 leading-relaxed">
+          <p className="max-w-2xl mx-auto text-lg sm:text-xl text-neutral-200 dark:text-neutral-400 leading-relaxed">
             Maximize your revenue and reduce administrative burden with our advanced medical billing solutions. Experience faster payments and fewer denials.
           </p>
 
@@ -54,7 +54,7 @@ const Hero = () => {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center px-8 py-3 rounded-xl bg-primary-500 text-white font-semibold 
+                className="inline-flex items-center px-8 py-3 rounded-xl bg-primary-500 text-white dark:text-neutral-100 font-semibold 
                          transition-all duration-200 hover:bg-primary-600 hover:shadow-lg hover:shadow-primary-500/30"
               >
                 Get Started
@@ -79,9 +79,9 @@ const Hero = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={scrollToServices}
-              className="inline-flex items-center px-8 py-3 rounded-xl bg-white/10 text-white font-semibold 
-                       backdrop-blur-sm border border-white/20 transition-all duration-200 
-                       hover:bg-white/20 hover:shadow-lg"
+              className="inline-flex items-center px-8 py-3 rounded-xl bg-white/10 dark:bg-neutral-800 text-white dark:text-neutral-100 font-semibold 
+                       backdrop-blur-sm border border-white/20 dark:border-neutral-700 transition-all duration-200 
+                       hover:bg-white/20 dark:hover:bg-neutral-700 hover:shadow-lg"
             >
               Learn More
               <svg
@@ -114,10 +114,10 @@ const Hero = () => {
               { number: '24/7', label: 'Support Available' },
             ].map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-3xl sm:text-4xl font-bold text-white mb-2">
+                <div className="text-3xl sm:text-4xl font-bold text-white dark:text-neutral-100 mb-2">
                   {stat.number}
                 </div>
-                <div className="text-sm sm:text-base text-neutral-300">
+                <div className="text-sm sm:text-base text-neutral-300 dark:text-neutral-500">
                   {stat.label}
                 </div>
               </div>
@@ -135,9 +135,9 @@ const Hero = () => {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 1.5 }}
-            className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-2"
+            className="w-6 h-10 rounded-full border-2 border-white/30 dark:border-neutral-700 flex items-start justify-center p-2"
           >
-            <motion.div className="w-1.5 h-1.5 rounded-full bg-white" />
+            <motion.div className="w-1.5 h-1.5 rounded-full bg-white dark:bg-neutral-100" />
           </motion.div>
         </motion.div>
       </div>
