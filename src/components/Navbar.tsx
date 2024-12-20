@@ -1,130 +1,117 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { usePathname } from 'next/navigation';
 import DarkModeToggle from './DarkModeToggle';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const navLinks = [
+  const navItems = [
     { href: '/', label: 'Home' },
-    { href: '/about', label: 'About Us' },
     { href: '/services', label: 'Services' },
+    { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
 
-  const navbarClasses = `
-    fixed w-full z-50 transition-all duration-300
-    ${
-      isScrolled
-        ? 'bg-white/95 dark:bg-neutral-900/95 backdrop-blur-lg border-b border-neutral-200 dark:border-neutral-800'
-        : 'bg-neutral-900/50 backdrop-blur-sm'
-    }
-  `;
-
-  const linkClasses = (href: string) => `
-    relative px-3 py-2 text-sm font-medium transition-colors duration-200
-    ${
-      isScrolled
-        ? 'text-neutral-800 dark:text-neutral-200 hover:text-primary-600 dark:hover:text-primary-400'
-        : 'text-neutral-100 hover:text-white'
-    }
-    ${pathname === href ? 'font-semibold' : ''}
-  `;
-
-  const mobileMenuClasses = `
-    absolute top-full left-0 w-full transform transition-all duration-300 ease-in-out
-    ${
-      isScrolled
-        ? 'bg-white/95 dark:bg-neutral-900/95 border-b border-neutral-200 dark:border-neutral-800'
-        : 'bg-neutral-900/95'
-    }
-    backdrop-blur-lg shadow-lg
-  `;
+  const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className={navbarClasses}>
+    <nav className="fixed w-full z-50 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-lg shadow-lg dark:shadow-neutral-900/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center">
-            <span className={`text-lg font-bold ${
-              isScrolled
-                ? 'text-neutral-800 dark:text-neutral-200'
-                : 'text-white'
-            }`}>
+          <div className="flex-shrink-0 flex items-center">
+            <Link href="/" className="text-2xl font-bold text-primary-600 dark:text-primary-400">
               MedBill Pro
-            </span>
-          </Link>
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            {navLinks.map((link) => (
+            {navItems.map((item) => (
               <Link
-                key={link.href}
-                href={link.href}
-                className={linkClasses(link.href)}
+                key={item.href}
+                href={item.href}
+                className={`px-3 py-2 rounded-md text-sm font-medium transition-all duration-200
+                  ${isActive(item.href)
+                    ? 'text-primary-600 dark:text-primary-400'
+                    : 'text-neutral-600 hover:text-primary-600 dark:text-neutral-300 dark:hover:text-primary-400'
+                  }`}
               >
-                {link.label}
+                {item.label}
               </Link>
             ))}
             <DarkModeToggle />
           </div>
 
-          {/* Mobile Menu Button */}
-          <div className="flex items-center space-x-4 md:hidden">
-            <DarkModeToggle />
+          {/* Mobile menu button */}
+          <div className="md:hidden flex items-center">
+            <DarkModeToggle className="mr-4" />
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-lg ${
-                isScrolled
-                  ? 'text-neutral-800 dark:text-neutral-200'
-                  : 'text-white'
-              }`}
+              className="inline-flex items-center justify-center p-2 rounded-md text-neutral-600 dark:text-neutral-300
+                hover:text-primary-600 dark:hover:text-primary-400 focus:outline-none"
+              aria-expanded="false"
             >
-              {isOpen ? <FiX className="h-6 w-6" /> : <FiMenu className="h-6 w-6" />}
+              <span className="sr-only">Open main menu</span>
+              <motion.div
+                animate={isOpen ? "open" : "closed"}
+                className="w-6 h-6 flex flex-col justify-around"
+              >
+                <motion.span
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: 45, y: 8 },
+                  }}
+                  className="w-6 h-0.5 bg-current origin-center transition-all duration-300"
+                />
+                <motion.span
+                  variants={{
+                    closed: { opacity: 1 },
+                    open: { opacity: 0 },
+                  }}
+                  className="w-6 h-0.5 bg-current transition-all duration-300"
+                />
+                <motion.span
+                  variants={{
+                    closed: { rotate: 0, y: 0 },
+                    open: { rotate: -45, y: -8 },
+                  }}
+                  className="w-6 h-0.5 bg-current origin-center transition-all duration-300"
+                />
+              </motion.div>
             </button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className={mobileMenuClasses}
+            transition={{ duration: 0.3 }}
+            className="md:hidden bg-white/90 dark:bg-neutral-900/90 backdrop-blur-lg"
           >
-            <div className="px-4 pt-2 pb-3 space-y-1">
-              {navLinks.map((link) => (
+            <div className="px-2 pt-2 pb-3 space-y-1">
+              {navItems.map((item) => (
                 <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`block px-3 py-2 text-base font-medium ${
-                    isScrolled
-                      ? 'text-neutral-800 dark:text-neutral-200'
-                      : 'text-white'
-                  }`}
+                  key={item.href}
+                  href={item.href}
+                  className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200
+                    ${isActive(item.href)
+                      ? 'text-primary-600 bg-primary-50 dark:text-primary-400 dark:bg-primary-900/20'
+                      : 'text-neutral-600 hover:text-primary-600 hover:bg-primary-50 dark:text-neutral-300 dark:hover:text-primary-400 dark:hover:bg-primary-900/20'
+                    }`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.label}
+                  {item.label}
                 </Link>
               ))}
             </div>

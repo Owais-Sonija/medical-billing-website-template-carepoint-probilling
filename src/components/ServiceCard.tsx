@@ -4,16 +4,16 @@ import { motion, HTMLMotionProps } from 'framer-motion';
 import Card from './Card';
 
 interface ServiceCardProps {
+  icon: string;
   title: string;
   description: string;
-  icon: string;
 }
 
 const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
   const MotionDiv = motion.div;
 
   return (
-    <Card className="p-6 shadow-soft">
+    <Card className="p-6 shadow-soft group">
       <MotionDiv
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -21,10 +21,16 @@ const ServiceCard = ({ title, description, icon }: ServiceCardProps) => {
         transition={{ duration: 0.5 }}
       >
         <div className="flex flex-col items-center text-center">
-          <div className="w-16 h-16 bg-primary-50 dark:bg-primary-900/20 rounded-full flex items-center justify-center mb-4">
-            <span className="text-3xl">{icon}</span>
-          </div>
-          <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2">{title}</h3>
+          <motion.div 
+            className="w-16 h-16 bg-primary-50 dark:bg-primary-900/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300"
+            whileHover={{ rotate: [0, -10, 10, -10, 0] }}
+            transition={{ duration: 0.5 }}
+          >
+            <span className="text-3xl text-primary-500 dark:text-primary-400">{icon}</span>
+          </motion.div>
+          <h3 className="text-xl font-semibold text-neutral-800 dark:text-neutral-100 mb-2 group-hover:text-primary-500 dark:group-hover:text-primary-400 transition-colors duration-300">
+            {title}
+          </h3>
           <p className="text-neutral-600 dark:text-neutral-400">{description}</p>
         </div>
 
