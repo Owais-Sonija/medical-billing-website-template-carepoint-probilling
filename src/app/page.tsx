@@ -171,7 +171,7 @@ export default function Home() {
             <div className="mt-8">
               <Button variant="outline" size="lg">
                 Contact Us Today
-                <FiArrowRight className="ml-2" />
+                <FiArrowRight className="inline ml-2" />
               </Button>
             </div>
           </div>

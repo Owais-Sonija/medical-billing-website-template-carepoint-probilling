@@ -39,7 +39,7 @@ export default function About() {
           className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
         >
           <h1 className="text-4xl sm:text-6xl font-bold mb-6 text-white">
-            About MedBill Pro
+            About CarePoint Billing
           </h1>
           <p className="text-xl sm:text-2xl text-primary-50 max-w-3xl mx-auto">
             Your Trusted Partner in Medical Billing Solutions
@@ -96,7 +96,7 @@ export default function About() {
               </h2>
               <div className="space-y-4">
                 <p className="text-lg text-neutral-600 dark:text-neutral-300">
-                  At MedBill Pro, we understand the complexities of medical billing and the challenges healthcare providers face in managing their revenue cycle. Founded with a mission to simplify healthcare billing, we've built our reputation on delivering reliable, efficient, and compliant billing services.
+                  At CarePoint Billing, we understand the complexities of medical billing and the challenges healthcare providers face in managing their revenue cycle. Founded with a mission to simplify healthcare billing, we've built our reputation on delivering reliable, efficient, and compliant billing services.
                 </p>
                 <p className="text-lg text-neutral-600 dark:text-neutral-300">
                   Our team of certified billing specialists combines years of industry experience with cutting-edge technology to ensure optimal results for our clients. We take pride in our role as a trusted partner to healthcare providers, helping them focus on what matters most – patient care.

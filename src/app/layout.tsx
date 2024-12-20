@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MedBill Pro - Professional Medical Billing Services",
+  title: "CarePoint Billing - Professional Medical Billing Services",
   description: "Professional medical billing services that streamline your healthcare payments with integrity and excellence.",
 };
 
