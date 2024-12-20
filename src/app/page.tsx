@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { FiCheckCircle, FiDollarSign, FiClock, FiShield, FiArrowRight } from 'react-icons/fi';
+import PerformanceGraph from '@/components/PerformanceGraph';
 import Button from '@/components/Button';
 import ServiceCard from '@/components/ServiceCard';
 import Card from '@/components/Card';
@@ -36,6 +36,52 @@ export default function Home() {
       title: 'Revenue Analysis',
       description: 'Detailed analysis and reporting of your practice revenue and performance.',
     },
+  ];
+
+  const features = [
+    {
+      title: "98% Clean Claim Rate",
+      description: "Our advanced billing system ensures high first-pass acceptance rates.",
+      icon: "✓"
+    },
+    {
+      title: "45% Faster Payments",
+      description: "Accelerated revenue cycle with optimized billing processes.",
+      icon: "⚡"
+    },
+    {
+      title: "24/7 Support",
+      description: "Round-the-clock assistance for all your billing needs.",
+      icon: "🔄"
+    }
+  ];
+
+  const testimonials = [
+    {
+      quote: "Our revenue increased by 35% within the first three months.",
+      author: "Dr. Sarah Johnson",
+      role: "Medical Director",
+      practice: "Family Care Clinic"
+    },
+    {
+      quote: "The team's expertise has been invaluable to our practice growth.",
+      author: "Dr. Michael Chen",
+      role: "Owner",
+      practice: "Advanced Medical Center"
+    },
+    {
+      quote: "Billing processes are now seamless and efficient.",
+      author: "Dr. Emily Rodriguez",
+      role: "Practice Manager",
+      practice: "Wellness Medical Group"
+    }
+  ];
+
+  const stats = [
+    { value: "$2.5M+", label: "Revenue Collected" },
+    { value: "15k+", label: "Claims Processed" },
+    { value: "98%", label: "Clean Claim Rate" },
+    { value: "50+", label: "Healthcare Providers" }
   ];
 
   return (
@@ -159,6 +205,134 @@ export default function Home() {
 
       {/* Testimonials */}
       <TestimonialSection />
+
+      {/* Performance Graphs */}
+      <section className="py-24 relative bg-primary-950 dark:bg-black">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-transparent dark:from-primary-950/10" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Performance Metrics
+            </h2>
+            <p className="text-lg text-primary-200 dark:text-primary-300">
+              Track your success with our comprehensive analytics
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl"
+            >
+              <h3 className="text-xl font-semibold text-white mb-4">Revenue Growth</h3>
+              <PerformanceGraph type="revenue" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl"
+            >
+              <h3 className="text-xl font-semibold text-white mb-4">Claims Performance</h3>
+              <PerformanceGraph type="claims" />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section className="py-24 relative bg-primary-900 dark:bg-neutral-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-800/20 to-transparent dark:from-primary-900/10" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">
+              Why Choose Us
+            </h2>
+            <p className="text-lg text-primary-200 dark:text-primary-300">
+              Industry-leading solutions for your medical billing needs
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {features.map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
+                <div className="relative">
+                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-semibold text-white mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-primary-200 dark:text-primary-300">
+                    {feature.description}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 relative bg-primary-950 dark:bg-black">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-transparent dark:from-primary-950/10" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-white mb-4">
+              What Our Clients Say
+            </h2>
+            <p className="text-lg text-primary-200 dark:text-primary-300">
+              Success stories from healthcare providers
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
+                <div className="relative">
+                  <p className="text-lg text-white mb-4">"{testimonial.quote}"</p>
+                  <div>
+                    <p className="font-semibold text-primary-200 dark:text-primary-300">
+                      {testimonial.author}
+                    </p>
+                    <p className="text-sm text-primary-300 dark:text-primary-400">
+                      {testimonial.role} at {testimonial.practice}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <Section className="bg-primary-500">
