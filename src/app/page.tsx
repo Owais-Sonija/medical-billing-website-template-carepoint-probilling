@@ -74,25 +74,61 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
+              className="space-y-6"
             >
-              <Heading>Why Choose Us?</Heading>
-              <div className="mt-6 space-y-4">
+              <Heading className="text-4xl font-bold">Why Choose Us?</Heading>
+              <p className="text-lg text-neutral-600 dark:text-neutral-300">
+                We deliver excellence in medical billing services with proven results and dedicated support.
+              </p>
+              <div className="space-y-6">
                 {[
-                  { icon: <FiCheckCircle />, text: 'High claim acceptance rate' },
-                  { icon: <FiDollarSign />, text: 'Maximize your revenue' },
-                  { icon: <FiClock />, text: 'Fast turnaround time' },
-                  { icon: <FiShield />, text: 'Secure and compliant' },
+                  { 
+                    icon: <FiCheckCircle className="w-6 h-6" />, 
+                    title: 'High Acceptance Rate',
+                    text: '98% first-pass claim acceptance rate' 
+                  },
+                  { 
+                    icon: <FiDollarSign className="w-6 h-6" />, 
+                    title: 'Revenue Optimization',
+                    text: 'Maximize your revenue through expert billing' 
+                  },
+                  { 
+                    icon: <FiClock className="w-6 h-6" />, 
+                    title: 'Fast Processing',
+                    text: '24-48 hour turnaround time on claims' 
+                  },
+                  { 
+                    icon: <FiShield className="w-6 h-6" />, 
+                    title: 'Secure & Compliant',
+                    text: 'HIPAA compliant with advanced security' 
+                  },
                 ].map((feature, index) => (
-                  <div key={index} className="flex items-center space-x-3">
-                    <span className="text-primary-500 text-xl">{feature.icon}</span>
-                    <span className="text-neutral-700 dark:text-neutral-300">{feature.text}</span>
-                  </div>
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="flex items-start space-x-4 p-4 rounded-lg hover:bg-white dark:hover:bg-neutral-700/50 transition-colors"
+                  >
+                    <span className="text-primary-500 p-2 bg-primary-50 dark:bg-primary-900/20 rounded-lg">
+                      {feature.icon}
+                    </span>
+                    <div>
+                      <h3 className="font-semibold text-lg text-neutral-900 dark:text-white">
+                        {feature.title}
+                      </h3>
+                      <p className="text-neutral-600 dark:text-neutral-300">
+                        {feature.text}
+                      </p>
+                    </div>
+                  </motion.div>
                 ))}
               </div>
-              <div className="mt-8">
-                <Button variant="primary" size="lg">
+              <div className="pt-4">
+                <Button variant="primary" size="lg" className="group ">
                   Learn More
-                  <FiArrowRight className="ml-2" />
+                  <FiArrowRight className="inline ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
             </motion.div>
@@ -102,13 +138,16 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="relative h-[400px] rounded-2xl overflow-hidden"
+              className="relative h-[500px] rounded-2xl overflow-hidden"
             >
+              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/20 to-transparent z-10" />
               <Image
-                src="/images/features.jpg"
-                alt="Medical Billing Features"
+                src="/images/healthcare-technology.jpg"
+                alt="Advanced Medical Billing Technology"
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </motion.div>
           </div>
