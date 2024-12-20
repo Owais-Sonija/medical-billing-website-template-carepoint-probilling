@@ -85,8 +85,8 @@ export default function About() {
                   <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200 mb-6">Our Mission</h2>
                   <div className="space-y-4 text-slate-800 dark:text-blue-200">
                     <p>
-                      At CarePoint ProBilling, we're committed to transforming healthcare billing through innovation,
-                      expertise, and unwavering dedication to our clients' success.
+                      At CarePoint ProBilling, we are committed to transforming healthcare billing through innovation,
+                      expertise, and unwavering dedication to our clients success.
                     </p>
                     <p>
                       Our mission is to simplify the complex world of medical billing, enabling healthcare providers
@@ -167,7 +167,7 @@ export default function About() {
                       What started as a small team of dedicated professionals has grown into a leading healthcare billing solutions provider.
                     </p>
                     <p>
-                      Over the years, we've helped hundreds of healthcare providers optimize their revenue cycles and improve their billing processes.
+                      Over the years, we have helped hundreds of healthcare providers optimize their revenue cycles and improve their billing processes.
                       Our commitment to innovation and excellence has made us a trusted partner in the healthcare industry.
                     </p>
                   </div>
@@ -217,7 +217,7 @@ export default function About() {
               },
               {
                 title: "Innovation",
-                description: "We're continuously innovate and adapt to new technologies to provide cutting-edge billing solutions.",
+                description: "we are continuously innovate and adapt to new technologies to provide cutting-edge billing solutions.",
                 icon: "💡"
               },
               {

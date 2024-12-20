@@ -257,7 +257,7 @@ export default function Home() {
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
                 <div className="relative">
-                  <p className="text-lg text-slate-800 dark:text-blue-200 mb-4">"{testimonial.quote}"</p>
+                  <p className="text-lg text-slate-800 dark:text-blue-200 mb-4">{testimonial.quote}</p>
                   <div>
                     <p className="font-semibold text-slate-800 dark:text-blue-200">
                       {testimonial.author}
