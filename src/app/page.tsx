@@ -53,7 +53,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="bg-white dark:bg-black">
+    <main className="bg-blue-50 dark:bg-slate-800">
       {/* Hero Section */}
       <section className="relative min-h-[80vh] flex items-center">
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -65,7 +65,7 @@ export default function Home() {
             priority
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-400/80 to-primary-600/80 dark:from-primary-900/90 dark:to-primary-950/90 mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-400/80 to-primary-600/80 dark:from-slate-800/90 dark:to-slate-900/90 mix-blend-multiply" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -73,10 +73,10 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            <h1 className="text-4xl sm:text-6xl font-bold text-slate-800 dark:text-blue-200 mb-6">
               Streamline Your Medical Billing
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 dark:text-primary-300 max-w-3xl mx-auto mb-8">
+            <p className="text-xl sm:text-2xl text-slate-800 dark:text-blue-200 max-w-3xl mx-auto mb-8">
               Maximize revenue and reduce administrative burden with our comprehensive medical billing solutions
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -98,8 +98,8 @@ export default function Home() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 relative bg-gray-50 dark:bg-neutral-950">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-100/50 to-transparent dark:from-primary-900/10" />
+      <section className="py-16 relative bg-blue-50 dark:bg-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0 }}
@@ -114,12 +114,12 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border border-primary-200/50 dark:border-neutral-800/30 shadow-xl"
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-500/5 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
                 <div className="relative">
-                  <div className="text-4xl font-bold text-primary-600 dark:text-white mb-2">{stat.value}</div>
-                  <div className="text-primary-700 dark:text-primary-300">{stat.label}</div>
+                  <div className="text-4xl font-bold text-slate-800 dark:text-blue-200 mb-2">{stat.value}</div>
+                  <div className="text-slate-800 dark:text-blue-200">{stat.label}</div>
                 </div>
               </motion.div>
             ))}
@@ -128,8 +128,8 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="py-24 relative bg-white dark:bg-black">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-950/10" />
+      <section className="py-24 relative bg-blue-50 dark:bg-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -137,10 +137,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200 mb-4">
               Why Choose Us
             </h2>
-            <p className="text-lg text-gray-600 dark:text-primary-300">
+            <p className="text-lg text-slate-800 dark:text-blue-200">
               Industry-leading solutions for your medical billing needs
             </p>
           </motion.div>
@@ -152,15 +152,15 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border border-primary-200/50 dark:border-neutral-800/30 shadow-xl"
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-500/5 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
                 <div className="relative">
                   <div className="text-4xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                  <h3 className="text-xl font-semibold text-slate-800 dark:text-blue-200 mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-primary-300">
+                  <p className="text-slate-800 dark:text-blue-200">
                     {feature.description}
                   </p>
                 </div>
@@ -171,8 +171,8 @@ export default function Home() {
       </section>
 
       {/* Performance Graphs */}
-      <section className="py-24 relative bg-gray-50 dark:bg-neutral-950">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-100/50 to-transparent dark:from-primary-900/10" />
+      <section className="py-24 relative bg-blue-50 dark:bg-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -180,10 +180,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200 mb-4">
               Performance Metrics
             </h2>
-            <p className="text-lg text-gray-600 dark:text-primary-300">
+            <p className="text-lg text-slate-800 dark:text-blue-200">
               Track your success with our comprehensive analytics
             </p>
           </motion.div>
@@ -192,18 +192,18 @@ export default function Home() {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border border-primary-200/50 dark:border-neutral-800/30 shadow-xl"
+              className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
             >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Revenue Growth</h3>
+              <h3 className="text-xl font-semibold text-slate-800 dark:text-blue-200 mb-4">Revenue Growth</h3>
               <PerformanceGraph type="revenue" />
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border border-primary-200/50 dark:border-neutral-800/30 shadow-xl"
+              className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
             >
-              <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Claims Performance</h3>
+              <h3 className="text-xl font-semibold text-slate-800 dark:text-blue-200 mb-4">Claims Performance</h3>
               <PerformanceGraph type="claims" />
             </motion.div>
           </div>
@@ -211,8 +211,8 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 relative bg-white dark:bg-black">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-950/10" />
+      <section className="py-24 relative bg-blue-50 dark:bg-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -220,10 +220,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200 mb-4">
               What Our Clients Say
             </h2>
-            <p className="text-lg text-gray-600 dark:text-primary-300">
+            <p className="text-lg text-slate-800 dark:text-blue-200">
               Success stories from healthcare providers
             </p>
           </motion.div>
@@ -235,16 +235,16 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-neutral-900/80 border border-primary-200/50 dark:border-neutral-800/30 shadow-xl"
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-50/50 to-transparent dark:from-primary-500/5 rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
                 <div className="relative">
-                  <p className="text-lg text-gray-700 dark:text-white mb-4">"{testimonial.quote}"</p>
+                  <p className="text-lg text-slate-800 dark:text-blue-200 mb-4">"{testimonial.quote}"</p>
                   <div>
-                    <p className="font-semibold text-primary-600 dark:text-primary-300">
+                    <p className="font-semibold text-slate-800 dark:text-blue-200">
                       {testimonial.author}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-primary-400">
+                    <p className="text-sm text-slate-800/80 dark:text-blue-200/80">
                       {testimonial.role} at {testimonial.practice}
                     </p>
                   </div>
@@ -256,8 +256,8 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 relative bg-gray-50 dark:bg-neutral-950">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-100/50 to-transparent dark:from-primary-900/10" />
+      <section className="py-24 relative bg-blue-50 dark:bg-slate-800">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -265,10 +265,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="text-center"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200 mb-4">
               Ready to Optimize Your Medical Billing?
             </h2>
-            <p className="text-lg text-gray-600 dark:text-primary-300 mb-8">
+            <p className="text-lg text-slate-800 dark:text-blue-200 mb-8">
               Join hundreds of healthcare providers who trust us with their billing needs
             </p>
             <Link
