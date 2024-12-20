@@ -183,7 +183,7 @@ const services = [
   },
   {
     title: "Revenue Cycle Management",
-    description: "Comprehensive management of your revenue cycle from charge capture to payment posting.",
+    description: "Comprehensive management of your revenue cycle from charge to payment.",
     icon: "💰"
   },
   {
