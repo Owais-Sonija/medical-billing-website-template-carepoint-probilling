@@ -195,6 +195,8 @@ export default function Services() {
                 alt="Doctor using tablet for medical billing"
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
             </motion.div>
             <motion.div

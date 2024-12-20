@@ -101,6 +101,8 @@ export default function About() {
                 alt="Medical Team"
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority
               />
               <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent" />
             </motion.div>
@@ -216,6 +218,7 @@ export default function About() {
                       alt={member.name}
                       fill
                       className="object-cover"
+                      sizes="(max-width: 768px) 33vw, 128px"
                     />
                   </div>
                   <h3 className="text-xl font-semibold text-slate-800 dark:text-blue-200">
