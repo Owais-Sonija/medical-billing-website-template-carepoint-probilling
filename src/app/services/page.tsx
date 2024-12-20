@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Services() {
   return (
-    <main className="bg-gradient-to-br from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800">
+    <main className="bg-white dark:bg-neutral-900">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -41,6 +41,7 @@ export default function Services() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
+            transition={{ duration: 0.3 }}
             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {services.map((service, index) => (
@@ -49,7 +50,7 @@ export default function Services() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
               >
                 <ServiceCard
                   title={service.title}
@@ -63,7 +64,7 @@ export default function Services() {
       </section>
 
       {/* Featured Service */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-24 relative bg-gradient-to-br from-neutral-50 to-white dark:from-neutral-800 dark:to-neutral-900">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent dark:from-primary-950/20 dark:to-transparent" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -130,8 +131,8 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-neutral-100 to-transparent dark:from-neutral-800/50 dark:to-transparent" />
+      <section className="py-24 relative bg-white dark:bg-neutral-900">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/20 to-transparent dark:from-primary-950/10 dark:to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
