@@ -19,7 +19,7 @@ const stagger = {
 
 export default function About() {
   return (
-    <main className="bg-gradient-to-br from-gray-50 to-white dark:from-neutral-900 dark:to-neutral-800">
+    <main className="bg-primary-950 dark:bg-black">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -48,7 +48,8 @@ export default function About() {
       </section>
 
       {/* Core Values Section */}
-      <section className="py-24">
+      <section className="py-24 relative bg-primary-950 dark:bg-black">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-transparent dark:from-primary-950/10" />
         <motion.div 
           initial="initial"
           whileInView="animate"
@@ -61,7 +62,7 @@ export default function About() {
               <motion.div
                 key={index}
                 variants={fadeIn}
-                className="relative p-8 rounded-2xl backdrop-blur-lg bg-white/30 dark:bg-neutral-800/30 border border-white/20 dark:border-neutral-700/30 shadow-xl hover:shadow-2xl transition-shadow"
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl hover:shadow-2xl transition-shadow"
               >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
                 <div className="relative">
@@ -80,8 +81,8 @@ export default function About() {
       </section>
 
       {/* Company Story */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent dark:from-primary-950/20 dark:to-transparent" />
+      <section className="py-24 relative overflow-hidden bg-primary-900 dark:bg-neutral-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-800/20 to-transparent dark:from-primary-900/10" />
         <motion.div 
           initial="initial"
           whileInView="animate"
@@ -120,7 +121,8 @@ export default function About() {
       </section>
 
       {/* Team Section */}
-      <section className="py-24 relative">
+      <section className="py-24 relative bg-primary-900 dark:bg-neutral-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-800/20 to-transparent dark:from-primary-900/10" />
         <motion.div 
           initial="initial"
           whileInView="animate"
