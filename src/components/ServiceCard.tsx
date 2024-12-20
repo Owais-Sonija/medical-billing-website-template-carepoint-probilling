@@ -5,40 +5,42 @@ import { motion } from 'framer-motion';
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: string;
-  features?: string[];
+  features: string[];
 }
 
-const ServiceCard = ({ title, description, icon, features }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, features }: ServiceCardProps) => {
   return (
     <motion.div
       whileHover={{ y: -5 }}
-      className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl hover:shadow-2xl transition-all"
+      className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl group hover:shadow-2xl transition-all duration-300"
     >
-      <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
+      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
       <div className="relative">
-        <div className="flex items-center space-x-4 mb-4">
-          <div className="text-4xl">{icon}</div>
-          <h3 className="text-xl font-semibold text-white">{title}</h3>
-        </div>
-        <p className="text-primary-200 dark:text-primary-300 mb-6">{description}</p>
-        {features && features.length > 0 && (
-          <ul className="space-y-2">
-            {features.map((feature, index) => (
-              <motion.li
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="flex items-center text-primary-100 dark:text-primary-200"
-              >
-                <span className="mr-2">•</span>
-                {feature}
-              </motion.li>
-            ))}
-          </ul>
-        )}
+        <h3 className="text-xl font-semibold text-slate-800 dark:text-blue-200 mb-3">
+          {title}
+        </h3>
+        <p className="text-slate-800 dark:text-blue-200 mb-6">
+          {description}
+        </p>
+        <ul className="space-y-3">
+          {features.map((feature, index) => (
+            <motion.li
+              key={index}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              className="flex items-start space-x-3"
+            >
+              <span className="text-blue-500 dark:text-blue-400 mt-1">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+              </span>
+              <span className="text-slate-800 dark:text-blue-200">{feature}</span>
+            </motion.li>
+          ))}
+        </ul>
       </div>
     </motion.div>
   );

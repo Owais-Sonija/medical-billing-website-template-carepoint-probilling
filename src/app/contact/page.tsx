@@ -1,206 +1,202 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { FiMapPin, FiPhone, FiMail, FiClock } from 'react-icons/fi';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    subject: '',
+    phone: '',
     message: ''
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log(formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
+    // Handle form submission
+    console.log('Form submitted:', formData);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const contactInfo = [
     {
-      icon: <FiMapPin className="w-6 h-6" />,
-      title: 'Address',
-      details: ['123 Healthcare Avenue', 'Suite 456', 'Medical City, MC 12345']
-    },
-    {
-      icon: <FiPhone className="w-6 h-6" />,
-      title: 'Phone',
-      details: ['(555) 123-4567', 'Toll Free: 1-800-123-4567']
-    },
-    {
-      icon: <FiMail className="w-6 h-6" />,
       title: 'Email',
-      details: ['info@carepointprobilling.com', 'support@carepointprobilling.com']
+      content: 'contact@carepointprobilling.com',
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+        </svg>
+      )
     },
     {
-      icon: <FiClock className="w-6 h-6" />,
-      title: 'Business Hours',
-      details: ['Monday - Friday: 9:00 AM - 6:00 PM', 'Saturday - Sunday: Closed']
+      title: 'Phone',
+      content: '+1 (555) 123-4567',
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+        </svg>
+      )
+    },
+    {
+      title: 'Address',
+      content: '123 Healthcare Plaza, Suite 100, Medical City, MC 12345',
+      icon: (
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+      )
     }
   ];
 
   return (
-    <main className="bg-primary-950 dark:bg-black">
+    <main className="min-h-screen bg-blue-50 dark:bg-slate-800">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src="/images/medical-office.jpg"
-            alt="Medical office"
-            fill
-            className="object-cover opacity-20 dark:opacity-10"
-            priority
-          />
+      <section className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-bold text-slate-800 dark:text-blue-200 sm:text-5xl md:text-6xl"
+            >
+              Contact Us
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mt-4 text-xl text-slate-800 dark:text-blue-200 max-w-3xl mx-auto"
+            >
+              Get in touch with our team of medical billing experts
+            </motion.p>
+          </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-600/90 to-primary-800/90 dark:from-primary-900/90 dark:to-primary-950/90 mix-blend-multiply" />
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        >
-          <h1 className="text-4xl sm:text-6xl font-bold mb-6 text-white">
-            Contact Us
-          </h1>
-          <p className="text-xl sm:text-2xl text-primary-50 max-w-3xl mx-auto">
-            Get in touch with our medical billing experts
-          </p>
-        </motion.div>
       </section>
 
-      {/* Contact Form and Info */}
-      <section className="py-24 relative bg-primary-900 dark:bg-neutral-950">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-800/20 to-transparent dark:from-primary-900/10" />
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3 }}
-              className="relative p-8 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
-              <div className="relative">
-                <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-8">
-                  Send us a Message
-                </h2>
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-neutral-900 dark:text-white mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent dark:text-white backdrop-blur-sm transition-colors"
-                      required
-                    />
+      {/* Contact Info Section */}
+      <section className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {contactInfo.map((info, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
+                <div className="relative flex items-center space-x-4">
+                  <div className="text-blue-500 dark:text-blue-400">
+                    {info.icon}
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-neutral-900 dark:text-white mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent dark:text-white backdrop-blur-sm transition-colors"
-                      required
-                    />
+                    <h3 className="text-lg font-semibold text-slate-800 dark:text-blue-200">
+                      {info.title}
+                    </h3>
+                    <p className="text-slate-800 dark:text-blue-200">
+                      {info.content}
+                    </p>
                   </div>
-                  <div>
-                    <label htmlFor="subject" className="block text-sm font-medium text-neutral-900 dark:text-white mb-2">
-                      Subject
-                    </label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent dark:text-white backdrop-blur-sm transition-colors"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium text-neutral-900 dark:text-white mb-2">
-                      Message
-                    </label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows={4}
-                      value={formData.message}
-                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-white/50 dark:bg-neutral-900/50 border border-neutral-200 dark:border-neutral-700 focus:ring-2 focus:ring-primary-500 dark:focus:ring-primary-400 focus:border-transparent dark:text-white backdrop-blur-sm transition-colors"
-                      required
-                    />
-                  </div>
-                  <motion.button
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    type="submit"
-                    className="w-full px-8 py-4 rounded-xl bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-semibold shadow-lg shadow-primary-500/25 dark:shadow-primary-900/50 transition-colors"
-                  >
-                    Send Message
-                  </motion.button>
-                </form>
-              </div>
-            </motion.div>
-
-            {/* Contact Information */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.3 }}
-              className="space-y-8"
-            >
-              {contactInfo.map((info, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl hover:shadow-2xl transition-shadow"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
-                  <div className="relative flex items-start space-x-4">
-                    <div className="flex-shrink-0 p-3 bg-primary-100 dark:bg-primary-900/20 rounded-xl">
-                      <span className="text-primary-600 dark:text-primary-400">
-                        {info.icon}
-                      </span>
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-2">
-                        {info.title}
-                      </h3>
-                      <div className="space-y-1">
-                        {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-neutral-600 dark:text-neutral-300">
-                            {detail}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </motion.div>
+                </div>
+              </motion.div>
+            ))}
           </div>
+        </div>
+      </section>
+
+      {/* Contact Form Section */}
+      <section className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
+        <div className="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="relative p-8 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
+          >
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
+            <div className="relative">
+              <h2 className="text-2xl font-bold text-slate-800 dark:text-blue-200 mb-6">
+                Send us a Message
+              </h2>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-slate-800 dark:text-blue-200 mb-2">
+                    Name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 rounded-lg border border-blue-200/50 dark:border-slate-600/30 bg-white/50 dark:bg-slate-800/50 text-slate-800 dark:text-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-slate-800 dark:text-blue-200 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 rounded-lg border border-blue-200/50 dark:border-slate-600/30 bg-white/50 dark:bg-slate-800/50 text-slate-800 dark:text-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  />
+                </div>
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-slate-800 dark:text-blue-200 mb-2">
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className="w-full px-4 py-2 rounded-lg border border-blue-200/50 dark:border-slate-600/30 bg-white/50 dark:bg-slate-800/50 text-slate-800 dark:text-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium text-slate-800 dark:text-blue-200 mb-2">
+                    Message
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={4}
+                    className="w-full px-4 py-2 rounded-lg border border-blue-200/50 dark:border-slate-600/30 bg-white/50 dark:bg-slate-800/50 text-slate-800 dark:text-blue-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    required
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  className="w-full px-6 py-3 rounded-lg bg-blue-500 hover:bg-blue-600 text-white font-medium transition-colors"
+                >
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </motion.div>
         </div>
       </section>
     </main>

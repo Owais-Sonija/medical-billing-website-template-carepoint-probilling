@@ -18,158 +18,217 @@ const stagger = {
 };
 
 export default function About() {
+  const values = [
+    {
+      title: 'Excellence',
+      description: 'We strive for excellence in every aspect of our service delivery.'
+    },
+    {
+      title: 'Integrity',
+      description: 'We maintain the highest standards of integrity and transparency.'
+    },
+    {
+      title: 'Innovation',
+      description: 'We continuously innovate to improve our services and processes.'
+    },
+    {
+      title: 'Client Focus',
+      description: "'Our clients' success is our primary focus and motivation."
+    }
+  ];
+
+  const team = [
+    {
+      name: 'Dr. Sarah Johnson',
+      role: 'CEO & Founder',
+      image: '/images/team/sarah.jpg',
+      bio: '20+ years of healthcare experience'
+    },
+    {
+      name: 'Michael Chen',
+      role: 'Head of Operations',
+      image: '/images/team/michael.jpg',
+      bio: 'Expert in healthcare operations'
+    },
+    {
+      name: 'Emily Rodriguez',
+      role: 'Billing Director',
+      image: '/images/team/emily.jpg',
+      bio: 'Certified billing specialist'
+    }
+  ];
+
   return (
-    <main className="bg-primary-950 dark:bg-black">
+    <main className="min-h-screen bg-blue-50 dark:bg-slate-800">
       {/* Hero Section */}
-      <section className="relative min-h-[60vh] flex items-center">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src="/images/medical-professional.jpg"
-            alt="Medical professional"
-            fill
-            className="object-cover opacity-20 dark:opacity-10"
-            priority
-          />
+      <section className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl font-bold text-slate-800 dark:text-blue-200 sm:text-5xl md:text-6xl"
+            >
+              About Us
+            </motion.h1>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="mt-4 text-xl text-slate-800 dark:text-blue-200 max-w-3xl mx-auto"
+            >
+              Leading the way in medical billing excellence
+            </motion.p>
+          </div>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-600/90 to-primary-800/90 dark:from-primary-900/90 dark:to-primary-950/90 mix-blend-multiply" />
-        <motion.div 
-          initial="initial"
-          animate="animate"
-          variants={fadeIn}
-          className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
-        >
-          <h1 className="text-4xl sm:text-6xl font-bold mb-6 text-white">
-            About CarePoint ProBilling
-          </h1>
-          <p className="text-xl sm:text-2xl text-primary-50 max-w-3xl mx-auto">
-            Your Trusted Partner in Medical Billing Solutions
-          </p>
-        </motion.div>
       </section>
 
-      {/* Core Values Section */}
-      <section className="py-24 relative bg-primary-950 dark:bg-black">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-transparent dark:from-primary-950/10" />
-        <motion.div 
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {/* Mission Section */}
+      <section className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-2xl overflow-hidden h-[400px]"
+            >
+              <Image
+                src="/images/medical-team.jpg"
+                alt="Medical Team"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/50 to-transparent" />
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200">Our Mission</h2>
+              <p className="text-lg text-slate-800 dark:text-blue-200">
+                To empower healthcare providers with efficient, accurate, and compliant billing solutions that maximize revenue and minimize administrative burden.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  'Industry-leading clean claim rate',
+                  'Dedicated support team',
+                  'Advanced technology integration',
+                  'Compliance-focused approach'
+                ].map((item, index) => (
+                  <motion.li
+                    key={index}
+                    initial={{ opacity: 0, x: 20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="flex items-center space-x-3"
+                  >
+                    <span className="text-blue-500 dark:text-blue-400">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    <span className="text-slate-800 dark:text-blue-200">{item}</span>
+                  </motion.li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Values Section */}
+      <section className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200">Our Values</h2>
+            <p className="mt-4 text-lg text-slate-800 dark:text-blue-200">
+              The principles that guide our work and relationships
+            </p>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {values.map((value, index) => (
               <motion.div
                 key={index}
-                variants={fadeIn}
-                className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl hover:shadow-2xl transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
                 <div className="relative">
-                  <div className="text-5xl mb-6">{value.icon}</div>
-                  <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-4">
+                  <h3 className="text-xl font-semibold text-slate-800 dark:text-blue-200 mb-2">
                     {value.title}
                   </h3>
-                  <p className="text-neutral-600 dark:text-neutral-300">
+                  <p className="text-slate-800 dark:text-blue-200">
                     {value.description}
                   </p>
                 </div>
               </motion.div>
             ))}
           </div>
-        </motion.div>
-      </section>
-
-      {/* Company Story */}
-      <section className="py-24 relative overflow-hidden bg-primary-900 dark:bg-neutral-950">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-800/20 to-transparent dark:from-primary-900/10" />
-        <motion.div 
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <motion.div variants={fadeIn} className="space-y-6">
-              <h2 className="text-4xl font-bold text-neutral-900 dark:text-white">
-                Our Story
-              </h2>
-              <div className="space-y-4">
-                <p className="text-lg text-neutral-600 dark:text-neutral-300">
-                  At CarePoint ProBilling, we understand the complexities of medical billing and the challenges healthcare providers face in managing their revenue cycle. Founded with a mission to simplify healthcare billing, we've built our reputation on delivering reliable, efficient, and compliant billing services.
-                </p>
-                <p className="text-lg text-neutral-600 dark:text-neutral-300">
-                  Our team of certified billing specialists combines years of industry experience with cutting-edge technology to ensure optimal results for our clients. We take pride in our role as a trusted partner to healthcare providers, helping them focus on what matters most – patient care.
-                </p>
-              </div>
-            </motion.div>
-            <motion.div 
-              variants={fadeIn}
-              className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl"
-            >
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 to-transparent z-10" />
-              <Image
-                src="/images/medical-records.jpg"
-                alt="Medical billing professionals at work"
-                fill
-                className="object-cover"
-              />
-            </motion.div>
-          </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Team Section */}
-      <section className="py-24 relative bg-primary-900 dark:bg-neutral-950">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-800/20 to-transparent dark:from-primary-900/10" />
-        <motion.div 
-          initial="initial"
-          whileInView="animate"
-          viewport={{ once: true }}
-          variants={stagger}
-          className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"
-        >
-          <motion.div variants={fadeIn} className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-neutral-900 dark:text-white mb-6">
-              Our Expert Team
-            </h2>
-            <p className="text-lg text-neutral-600 dark:text-neutral-300">
-              Meet the dedicated professionals who make excellence in medical billing possible
+      <section className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200">Our Team</h2>
+            <p className="mt-4 text-lg text-slate-800 dark:text-blue-200">
+              Meet the experts behind our success
             </p>
           </motion.div>
-          <motion.div 
-            variants={fadeIn}
-            className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl"
-          >
-            <div className="absolute inset-0 bg-gradient-to-t from-primary-900/50 to-transparent z-10" />
-            <Image
-              src="/images/medical-team-meeting.jpg"
-              alt="Our medical billing team"
-              fill
-              className="object-cover"
-            />
-          </motion.div>
-        </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {team.map((member, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
+                <div className="relative">
+                  <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold text-slate-800 dark:text-blue-200">
+                    {member.name}
+                  </h3>
+                  <p className="text-blue-600 dark:text-blue-400 mb-2">{member.role}</p>
+                  <p className="text-slate-800 dark:text-blue-200">{member.bio}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
       </section>
     </main>
   );
 }
-
-const values = [
-  {
-    title: "Integrity",
-    description: "We uphold the highest ethical standards in all our operations, ensuring transparency and honesty in every interaction.",
-    icon: "⚖️"
-  },
-  {
-    title: "Excellence",
-    description: "Our commitment to excellence drives us to deliver superior service and optimal results for our clients.",
-    icon: "🌟"
-  },
-  {
-    title: "Innovation",
-    description: "We leverage cutting-edge technology and best practices to streamline the billing process and maximize efficiency.",
-    icon: "💡"
-  }
-];
