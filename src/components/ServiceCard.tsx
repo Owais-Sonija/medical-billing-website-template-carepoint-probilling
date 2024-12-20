@@ -3,28 +3,42 @@
 import { motion } from 'framer-motion';
 
 interface ServiceCardProps {
-  icon: string;
   title: string;
   description: string;
+  icon: string;
+  features?: string[];
 }
 
-const ServiceCard = ({ icon, title, description }: ServiceCardProps) => {
+const ServiceCard = ({ title, description, icon, features }: ServiceCardProps) => {
   return (
     <motion.div
-      whileHover={{ scale: 1.02 }}
-      className="relative p-8 rounded-2xl backdrop-blur-lg bg-white/30 dark:bg-neutral-800/30 border border-white/20 dark:border-neutral-700/30 shadow-xl hover:shadow-2xl transition-shadow"
+      whileHover={{ y: -5 }}
+      className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl hover:shadow-2xl transition-all"
     >
       <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
       <div className="relative">
-        <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900/20 rounded-xl flex items-center justify-center mb-6">
-          <span className="text-2xl">{icon}</span>
+        <div className="flex items-center space-x-4 mb-4">
+          <div className="text-4xl">{icon}</div>
+          <h3 className="text-xl font-semibold text-white">{title}</h3>
         </div>
-        <h3 className="text-xl font-semibold text-neutral-900 dark:text-white mb-3">
-          {title}
-        </h3>
-        <p className="text-neutral-600 dark:text-neutral-300">
-          {description}
-        </p>
+        <p className="text-primary-200 dark:text-primary-300 mb-6">{description}</p>
+        {features && features.length > 0 && (
+          <ul className="space-y-2">
+            {features.map((feature, index) => (
+              <motion.li
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="flex items-center text-primary-100 dark:text-primary-200"
+              >
+                <span className="mr-2">•</span>
+                {feature}
+              </motion.li>
+            ))}
+          </ul>
+        )}
       </div>
     </motion.div>
   );

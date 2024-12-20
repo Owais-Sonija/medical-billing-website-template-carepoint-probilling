@@ -56,7 +56,38 @@ export default function Services() {
                   title={service.title}
                   description={service.description}
                   icon={service.icon}
+                  features={service.features}
                 />
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="py-16 relative bg-primary-900 dark:bg-neutral-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-800/20 to-transparent dark:from-primary-900/10" />
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+          >
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.3, delay: index * 0.1 }}
+                className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
+                <div className="relative">
+                  <div className="text-4xl font-bold text-white mb-2">{stat.value}</div>
+                  <div className="text-primary-200 dark:text-primary-300">{stat.label}</div>
+                </div>
               </motion.div>
             ))}
           </motion.div>
@@ -178,35 +209,78 @@ export default function Services() {
 
 const services = [
   {
-    title: "Claims Processing",
-    description: "Efficient and accurate claims submission with real-time tracking and follow-up.",
-    icon: "📋"
+    title: "Medical Billing",
+    description: "Complete end-to-end medical billing services with 98% clean claim rate and faster reimbursements.",
+    icon: "💼",
+    features: [
+      "Insurance verification and eligibility checks",
+      "Claims submission and tracking",
+      "Denial management and appeals",
+      "Payment posting and reconciliation"
+    ]
   },
   {
     title: "Revenue Cycle Management",
     description: "Comprehensive management of your revenue cycle from charge to payment.",
-    icon: "💰"
+    icon: "💰",
+    features: [
+      "Charge capture optimization",
+      "AR management and follow-up",
+      "Performance analytics and reporting",
+      "Revenue leakage prevention"
+    ]
   },
   {
-    title: "Denial Management",
-    description: "Expert handling of claim denials and appeals to maximize reimbursement.",
-    icon: "🔄"
+    title: "Coding Services",
+    description: "Expert medical coding services ensuring accuracy and compliance with latest regulations.",
+    icon: "📋",
+    features: [
+      "ICD-10 and CPT coding",
+      "Coding audits and reviews",
+      "Documentation improvement",
+      "Compliance monitoring"
+    ]
   },
   {
-    title: "Compliance Support",
-    description: "Stay compliant with healthcare regulations and billing requirements.",
-    icon: "✓"
+    title: "Practice Management",
+    description: "Streamline your practice operations and improve efficiency with our comprehensive solutions.",
+    icon: "🏥",
+    features: [
+      "Appointment scheduling",
+      "Patient registration",
+      "Insurance verification",
+      "Practice analytics"
+    ]
   },
   {
-    title: "Patient Billing",
-    description: "Professional handling of patient statements and payment collection.",
-    icon: "👥"
+    title: "Credentialing Services",
+    description: "Professional provider credentialing and enrollment services for all major insurance payers.",
+    icon: "✅",
+    features: [
+      "Provider enrollment",
+      "CAQH maintenance",
+      "Credential verification",
+      "Expiration tracking"
+    ]
   },
   {
-    title: "Reporting & Analytics",
-    description: "Detailed financial reports and analytics to track your practice's performance.",
-    icon: "📊"
+    title: "Analytics & Reporting",
+    description: "Data-driven insights and comprehensive reporting for informed decision-making.",
+    icon: "📊",
+    features: [
+      "Financial performance metrics",
+      "Claims analysis",
+      "Provider productivity reports",
+      "Custom dashboards"
+    ]
   }
+];
+
+const stats = [
+  { value: "98%", label: "Clean Claim Rate" },
+  { value: "45%", label: "Faster Payments" },
+  { value: "35%", label: "Revenue Increase" },
+  { value: "24/7", label: "Support Available" }
 ];
 
 const process = [
