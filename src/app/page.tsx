@@ -55,17 +55,19 @@ export default function Home() {
   return (
     <main className="bg-blue-50 dark:bg-slate-800">
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center">
+      <section className="relative min-h-[90vh] flex items-center">
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
-            src="/images/medical-billing-hero.jpg"
+            src="/images/hero-bg.jpg"
             alt="Medical Billing Hero"
             fill
-            className="object-cover opacity-30 dark:opacity-10"
+            className="object-cover"
+            sizes="100vw"
             priority
+            quality={90}
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/80 via-blue-900/70 to-blue-900/90 dark:from-slate-900/90 dark:via-slate-900/80 dark:to-slate-900/95 mix-blend-multiply" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-400/80 to-primary-600/80 dark:from-slate-800/90 dark:to-slate-900/90 mix-blend-multiply" />
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -73,25 +75,41 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl sm:text-6xl font-bold text-slate-800 dark:text-blue-200 mb-6">
-              Streamline Your Medical Billing
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold text-white dark:text-blue-100 mb-6">
+              <span className="block">Streamline Your</span>
+              <span className="block mt-2 bg-gradient-to-r from-blue-200 to-blue-400 dark:from-blue-300 dark:to-blue-500 bg-clip-text text-transparent">
+                Medical Billing
+              </span>
             </h1>
-            <p className="text-xl sm:text-2xl text-slate-800 dark:text-blue-200 max-w-3xl mx-auto mb-8">
+            <p className="text-xl sm:text-2xl text-blue-100 dark:text-blue-200 max-w-3xl mx-auto mb-8 leading-relaxed">
               Maximize revenue and reduce administrative burden with our comprehensive medical billing solutions
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/contact"
-                className="px-8 py-4 rounded-xl bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-semibold shadow-lg shadow-primary-500/25 dark:shadow-primary-900/50 transition-colors"
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Get Started
-              </Link>
-              <Link
-                href="/services"
-                className="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold backdrop-blur-sm transition-colors"
+                <Link
+                  href="/contact"
+                  className="inline-block px-8 py-4 rounded-xl bg-primary-500 hover:bg-primary-600 dark:bg-primary-600 
+                           dark:hover:bg-primary-700 text-white font-semibold shadow-lg shadow-primary-500/25 
+                           dark:shadow-primary-900/50 transition-all duration-300"
+                >
+                  Get Started
+                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
               >
-                Learn More
-              </Link>
+                <Link
+                  href="/services"
+                  className="inline-block px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white 
+                           font-semibold backdrop-blur-sm border border-white/20 transition-all duration-300"
+                >
+                  Learn More
+                </Link>
+              </motion.div>
             </div>
           </motion.div>
         </div>

@@ -173,28 +173,23 @@ export default function Services() {
         </div>
       </section>
 
-      {/* Featured Service */}
-      <section className="py-24 relative bg-blue-100 dark:bg-slate-700">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-200/20 to-transparent dark:from-slate-600/10" />
+      {/* Advanced Claims Processing Section */}
+      <section className="relative py-24">
+        <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
-          >
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl"
+              className="relative h-[500px] rounded-2xl overflow-hidden shadow-2xl group"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-blue-200/50 to-transparent z-10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 to-transparent z-10" />
               <Image
                 src="/images/doctor-tablet.jpg"
                 alt="Doctor using tablet for medical billing"
                 fill
-                className="object-cover"
+                className="object-cover transform group-hover:scale-105 transition-transform duration-700"
                 sizes="(max-width: 768px) 100vw, 50vw"
                 priority
               />
@@ -238,7 +233,7 @@ export default function Services() {
                 ))}
               </ul>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </section>
 
