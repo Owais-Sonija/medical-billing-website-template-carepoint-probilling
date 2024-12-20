@@ -167,7 +167,7 @@ export default function About() {
                       What started as a small team of dedicated professionals has grown into a leading healthcare billing solutions provider.
                     </p>
                     <p>
-                      Over the years, we've helped hundreds of healthcare providers optimize their revenue cycles and improve their billing processes.
+                      Over the years, we&apos;ve helped hundreds of healthcare providers optimize their revenue cycles and improve their billing processes.
                       Our commitment to innovation and excellence has made us a trusted partner in the healthcare industry.
                     </p>
                   </div>
@@ -217,7 +217,7 @@ export default function About() {
               },
               {
                 title: "Innovation",
-                description: "We continuously innovate and adapt to new technologies to provide cutting-edge billing solutions.",
+                description: "We&apos;re continuously innovate and adapt to new technologies to provide cutting-edge billing solutions.",
                 icon: "💡"
               },
               {

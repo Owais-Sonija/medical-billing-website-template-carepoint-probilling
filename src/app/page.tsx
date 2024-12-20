@@ -26,7 +26,7 @@ export default function Home() {
 
   const testimonials = [
     {
-      quote: "Our revenue increased by 35% within the first three months.",
+      quote: "&ldquo;Our revenue increased by 35% within the first three months.&rdquo;",
       author: "Dr. Sarah Johnson",
       role: "Medical Director",
       practice: "Family Care Clinic"

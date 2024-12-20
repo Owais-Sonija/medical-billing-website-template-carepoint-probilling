@@ -87,7 +87,7 @@ const TestimonialSection = () => {
                 </div>
                 <div className="flex-1 text-center md:text-left">
                   <p className="text-neutral-700 dark:text-neutral-300 text-lg md:text-xl italic mb-6">
-                    "{testimonials[currentIndex].content}"
+                    &ldquo;{testimonials[currentIndex].content}&rdquo;
                   </p>
                   <h3 className="font-semibold text-xl text-neutral-900 dark:text-white">
                     {testimonials[currentIndex].name}

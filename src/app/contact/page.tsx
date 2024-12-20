@@ -41,7 +41,7 @@ export default function Contact() {
               Get in Touch
             </h1>
             <p className="text-xl text-slate-600 dark:text-blue-200 max-w-3xl mx-auto">
-              We're here to help with all your medical billing needs. Reach out to us through any of the channels below.
+              We&apos;re here to help with all your medical billing needs. Reach out to us through any of the channels below.
             </p>
           </motion.div>
         </div>
