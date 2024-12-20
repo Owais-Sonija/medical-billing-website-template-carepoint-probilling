@@ -26,19 +26,19 @@ export default function Home() {
 
   const testimonials = [
     {
-      quote: "&ldquo;Our revenue increased by 35% within the first three months.&rdquo;",
+      quote: "&ldquo;Our revenue increased by 35% within the first three months&rdquo;",
       author: "Dr. Sarah Johnson",
       role: "Medical Director",
       practice: "Family Care Clinic"
     },
     {
-      quote: "The team's expertise has been invaluable to our practice growth.",
+      quote: "&ldquo;The team&apos;s expertise has been invaluable to our practice growth&rdquo;",
       author: "Dr. Michael Chen",
       role: "Owner",
       practice: "Advanced Medical Center"
     },
     {
-      quote: "Billing processes are now seamless and efficient.",
+      quote: "&ldquo;Billing processes are now seamless and efficient&rdquo;",
       author: "Dr. Emily Rodriguez",
       role: "Practice Manager",
       practice: "Wellness Medical Group"
