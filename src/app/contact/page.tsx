@@ -187,25 +187,22 @@ export default function Contact() {
                   src="/images/map-bg.jpg"
                   alt="Office location map"
                   fill
-                  className="object-cover"
+                  className="object-cover object-center"
                   sizes="(max-width: 768px) 100vw, 50vw"
                   priority
+                  quality={90}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-blue-900/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/80 via-blue-900/40 to-blue-900/20" />
               </div>
-              <div className="relative h-full flex flex-col justify-end p-8">
-                <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl p-6 shadow-lg">
-                  <h3 className="text-xl font-semibold text-slate-800 dark:text-blue-200 mb-2">
-                    Our Location
-                  </h3>
-                  <p className="text-slate-600 dark:text-blue-100 mb-4">
-                    Visit us at our main office in the heart of New York City's medical district.
-                  </p>
-                  <div className="flex items-center text-blue-600 dark:text-blue-400">
-                    <span className="text-2xl mr-2">📍</span>
-                    123 Medical Plaza, Suite 100
-                    <br />
-                    New York, NY 10001
+              <div className="absolute bottom-0 left-0 right-0 p-8">
+                <div className="bg-white/10 backdrop-blur-lg rounded-xl p-6 border border-white/20">
+                  <h3 className="text-2xl font-bold text-white mb-2">Our Office</h3>
+                  <p className="text-white/90 mb-4">123 Medical Plaza, Suite 100<br />New York, NY 10001</p>
+                  <div className="flex items-center text-white/80">
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span>Mon-Fri: 9:00 AM - 6:00 PM EST</span>
                   </div>
                 </div>
               </div>
