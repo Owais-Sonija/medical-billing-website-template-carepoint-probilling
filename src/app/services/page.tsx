@@ -8,63 +8,69 @@ export default function Services() {
   const services = [
     {
       title: 'Medical Billing',
-      description: 'Comprehensive medical billing services to maximize your revenue',
+      description: 'Comprehensive end-to-end medical billing services to maximize your revenue cycle.',
       features: [
         'Claims Processing & Submission',
         'Payment Posting & Reconciliation',
         'Denial Management',
-        'Patient Billing'
-      ]
+        'Patient Billing Support'
+      ],
+      icon: '💼'
     },
     {
       title: 'Revenue Cycle Management',
-      description: 'End-to-end revenue cycle management solutions',
+      description: 'Optimize your revenue cycle with our advanced management solutions.',
       features: [
         'Eligibility Verification',
-        'AR Management',
-        'Financial Reporting',
-        'Revenue Analytics'
-      ]
+        'AR Management & Follow-up',
+        'Revenue Analytics',
+        'Performance Reporting'
+      ],
+      icon: '📈'
     },
     {
       title: 'Coding Services',
-      description: 'Expert medical coding for accurate reimbursement',
+      description: 'Expert medical coding services to ensure accurate claim submission.',
       features: [
-        'ICD-10 Coding',
-        'CPT/HCPCS Coding',
-        'Coding Audits',
-        'Documentation Review'
-      ]
+        'ICD-10 & CPT Coding',
+        'Coding Compliance Review',
+        'Documentation Audit',
+        'Coding Education'
+      ],
+      icon: '📋'
     },
     {
       title: 'Practice Management',
-      description: 'Streamline your practice operations',
+      description: 'Comprehensive solutions to streamline your practice operations.',
       features: [
         'Appointment Scheduling',
         'Patient Registration',
         'Insurance Verification',
         'Practice Analytics'
-      ]
+      ],
+      icon: '⚕️'
     },
     {
       title: 'Credentialing Services',
-      description: 'Comprehensive provider credentialing solutions',
+      description: 'Professional provider credentialing and enrollment services.',
       features: [
         'Provider Enrollment',
-        'CAQH Management',
+        'CAQH Profile Management',
         'License Renewals',
         'Payer Enrollment'
-      ]
+      ],
+      icon: '🔐'
     },
     {
       title: 'Analytics & Reporting',
-      description: 'Data-driven insights for your practice',
+      description: 'Data-driven insights to optimize your practice performance.',
       features: [
         'Financial Analytics',
         'Performance Metrics',
         'Custom Reports',
         'Trend Analysis'
-      ]
+      ],
+      icon: '📊'
     }
   ];
 
@@ -129,14 +135,14 @@ export default function Services() {
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <ServiceCard
                   title={service.title}
                   description={service.description}
                   features={service.features}
+                  icon={service.icon}
                 />
               </motion.div>
             ))}
@@ -198,24 +204,23 @@ export default function Services() {
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="space-y-6"
+              className="flex flex-col justify-center"
             >
-              <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200">
+              <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200 mb-6">
                 Advanced Claims Processing
               </h2>
-              <p className="text-slate-800 dark:text-blue-200">
-                Our advanced claims processing system combines cutting-edge technology with expert
-                human oversight to ensure maximum accuracy and efficiency. We handle everything from
-                initial submission to follow-up and appeals.
+              <p className="text-lg text-slate-800 dark:text-blue-200 mb-8">
+                Our advanced claims processing system ensures faster reimbursements and fewer denials.
+                We handle everything from submission to follow-up, so you can focus on patient care.
               </p>
-              <ul className="space-y-4 text-slate-800 dark:text-blue-200">
+              <ul className="space-y-4">
                 {[
-                  "Real-time claim status tracking",
-                  "Automated error detection",
-                  "Fast electronic submission",
-                  "Denial management and appeals"
-                ].map((item, index) => (
-                  <motion.li 
+                  '98% Clean Claim Rate',
+                  '24-48 Hour Claim Submission',
+                  'Automated Denial Management',
+                  'Real-time Claim Status Tracking'
+                ].map((feature, index) => (
+                  <motion.li
                     key={index}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
@@ -228,7 +233,7 @@ export default function Services() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                     </span>
-                    <span>{item}</span>
+                    <span className="text-slate-800 dark:text-blue-200">{feature}</span>
                   </motion.li>
                 ))}
               </ul>
