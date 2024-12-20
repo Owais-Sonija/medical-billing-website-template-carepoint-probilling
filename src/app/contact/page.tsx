@@ -45,7 +45,7 @@ export default function Contact() {
   ];
 
   return (
-    <main className="bg-white dark:bg-neutral-900">
+    <main className="bg-primary-950 dark:bg-black">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -74,7 +74,8 @@ export default function Contact() {
       </section>
 
       {/* Contact Form and Info */}
-      <section className="py-24 relative bg-gradient-to-br from-neutral-50 to-white dark:from-neutral-800 dark:to-neutral-900">
+      <section className="py-24 relative bg-primary-900 dark:bg-neutral-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-800/20 to-transparent dark:from-primary-900/10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             {/* Contact Form */}
@@ -83,7 +84,7 @@ export default function Contact() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.3 }}
-              className="relative p-8 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-neutral-800/80 border border-white/20 dark:border-neutral-700/30 shadow-xl"
+              className="relative p-8 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl"
             >
               <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
               <div className="relative">
@@ -174,7 +175,7 @@ export default function Contact() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
-                  className="relative p-6 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-neutral-800/80 border border-white/20 dark:border-neutral-700/30 shadow-xl hover:shadow-2xl transition-shadow"
+                  className="relative p-6 rounded-2xl backdrop-blur-lg bg-primary-800/80 dark:bg-neutral-900/80 border border-primary-700/20 dark:border-neutral-800/30 shadow-xl hover:shadow-2xl transition-shadow"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-primary-500/5 to-transparent rounded-2xl" />
                   <div className="relative flex items-start space-x-4">

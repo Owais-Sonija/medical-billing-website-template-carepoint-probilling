@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 export default function Services() {
   return (
-    <main className="bg-white dark:bg-neutral-900">
+    <main className="bg-primary-950 dark:bg-black">
       {/* Hero Section */}
       <section className="relative min-h-[60vh] flex items-center">
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -64,8 +64,8 @@ export default function Services() {
       </section>
 
       {/* Featured Service */}
-      <section className="py-24 relative bg-gradient-to-br from-neutral-50 to-white dark:from-neutral-800 dark:to-neutral-900">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50 to-transparent dark:from-primary-950/20 dark:to-transparent" />
+      <section className="py-24 relative bg-primary-900 dark:bg-neutral-950">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-800/20 to-transparent dark:from-primary-900/10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
             initial={{ opacity: 0 }}
@@ -131,8 +131,8 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 relative bg-white dark:bg-neutral-900">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-50/20 to-transparent dark:from-primary-950/10 dark:to-transparent" />
+      <section className="py-24 relative bg-primary-950 dark:bg-black">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary-900/20 to-transparent dark:from-primary-950/10" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
