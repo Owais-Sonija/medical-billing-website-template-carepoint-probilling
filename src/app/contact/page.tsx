@@ -26,7 +26,7 @@ export default function Contact() {
   ];
 
   return (
-    <main className="min-h-screen bg-blue-50 dark:bg-slate-800">
+    <main className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-slate-800 dark:to-slate-900">
       {/* Hero Section */}
       <section className="relative py-20">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-100/50 to-transparent dark:from-slate-700/10" />
@@ -40,8 +40,8 @@ export default function Contact() {
             <h1 className="text-4xl font-bold text-slate-800 dark:text-blue-200 sm:text-5xl md:text-6xl mb-6">
               Get in Touch
             </h1>
-            <p className="text-xl text-slate-800 dark:text-blue-200 max-w-3xl mx-auto">
-              We're here to help with all your medical billing needs
+            <p className="text-xl text-slate-600 dark:text-blue-200 max-w-3xl mx-auto">
+              We're here to help with all your medical billing needs. Reach out to us through any of the channels below.
             </p>
           </motion.div>
         </div>
@@ -57,24 +57,28 @@ export default function Contact() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="relative p-8 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 
-                          border border-blue-200/50 dark:border-slate-600/30 shadow-xl 
-                          hover:shadow-2xl transition-all duration-300 group"
+                className="group cursor-pointer"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
-                <div className="relative space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <span className="text-3xl">{info.icon}</span>
-                    <h3 className="text-2xl font-semibold text-slate-800 dark:text-blue-200">
-                      {info.title}
-                    </h3>
+                <div className="h-full relative p-8 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-800/80 
+                            border border-blue-200/50 dark:border-slate-600/30 shadow-xl 
+                            hover:shadow-2xl transition-all duration-300
+                            hover:bg-gradient-to-br hover:from-blue-50 hover:to-white
+                            dark:hover:from-slate-700 dark:hover:to-slate-800">
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
+                  <div className="relative space-y-4">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-4xl group-hover:scale-110 transition-transform duration-300">{info.icon}</span>
+                      <h3 className="text-2xl font-semibold bg-gradient-to-r from-slate-800 to-slate-600 dark:from-blue-200 dark:to-blue-400 bg-clip-text text-transparent">
+                        {info.title}
+                      </h3>
+                    </div>
+                    <p className="text-slate-600 dark:text-blue-100">
+                      {info.description}
+                    </p>
+                    <p className="text-lg font-medium text-blue-600 dark:text-blue-400">
+                      {info.detail}
+                    </p>
                   </div>
-                  <p className="text-slate-700 dark:text-blue-100">
-                    {info.description}
-                  </p>
-                  <p className="text-lg font-medium text-blue-600 dark:text-blue-400">
-                    {info.detail}
-                  </p>
                 </div>
               </motion.div>
             ))}
@@ -82,110 +86,131 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Contact Form */}
-      <section className="relative py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="relative p-8 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-700/80 
-                      border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
-            <div className="relative">
-              <h2 className="text-3xl font-bold text-slate-800 dark:text-blue-200 mb-8">
-                Send us a Message
-              </h2>
-              <form className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-blue-200 mb-2">
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      className="w-full px-4 py-3 rounded-xl border border-blue-200/50 dark:border-slate-600/30 
-                               bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm
-                               focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 
-                               focus:border-transparent outline-none transition-all duration-200
-                               text-slate-800 dark:text-blue-200"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-blue-200 mb-2">
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="w-full px-4 py-3 rounded-xl border border-blue-200/50 dark:border-slate-600/30 
-                               bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm
-                               focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 
-                               focus:border-transparent outline-none transition-all duration-200
-                               text-slate-800 dark:text-blue-200"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-blue-200 mb-2">
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    className="w-full px-4 py-3 rounded-xl border border-blue-200/50 dark:border-slate-600/30 
-                             bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm
-                             focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 
-                             focus:border-transparent outline-none transition-all duration-200
-                             text-slate-800 dark:text-blue-200"
-                    placeholder="Your message"
-                  ></textarea>
-                </div>
-                <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <button
-                    type="submit"
-                    className="w-full px-8 py-4 rounded-xl bg-primary-500 hover:bg-primary-600 
-                             dark:bg-primary-600 dark:hover:bg-primary-700 text-white font-semibold 
-                             shadow-lg shadow-primary-500/25 dark:shadow-primary-900/50 
-                             transition-all duration-200"
-                  >
-                    Send Message
-                  </button>
-                </motion.div>
-              </form>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Map Section */}
+      {/* Contact Form and Map Section */}
       <section className="relative py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="relative h-[400px] rounded-2xl overflow-hidden shadow-2xl"
-          >
-            <div className="absolute inset-0 bg-gradient-to-t from-blue-900/10 to-transparent z-10" />
-            <Image
-              src="/images/map.jpg"
-              alt="Office location map"
-              fill
-              className="object-cover"
-              sizes="100vw"
-            />
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            {/* Form */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="relative p-8 rounded-2xl backdrop-blur-lg bg-white/80 dark:bg-slate-800/80 
+                        border border-blue-200/50 dark:border-slate-600/30 shadow-xl"
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-transparent dark:from-slate-600/5 rounded-2xl" />
+              <div className="relative">
+                <h2 className="text-3xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 dark:from-blue-200 dark:to-blue-400 bg-clip-text text-transparent mb-8">
+                  Send us a Message
+                </h2>
+                <form className="space-y-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-blue-200 mb-2">
+                        Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="w-full px-4 py-3 rounded-xl border border-blue-200/50 dark:border-slate-600/30 
+                                 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm
+                                 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 
+                                 focus:border-transparent outline-none transition-all duration-200
+                                 text-slate-800 dark:text-blue-200"
+                        placeholder="Your name"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="email" className="block text-sm font-medium text-slate-700 dark:text-blue-200 mb-2">
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        className="w-full px-4 py-3 rounded-xl border border-blue-200/50 dark:border-slate-600/30 
+                                 bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm
+                                 focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 
+                                 focus:border-transparent outline-none transition-all duration-200
+                                 text-slate-800 dark:text-blue-200"
+                        placeholder="your@email.com"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label htmlFor="message" className="block text-sm font-medium text-slate-700 dark:text-blue-200 mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={6}
+                      className="w-full px-4 py-3 rounded-xl border border-blue-200/50 dark:border-slate-600/30 
+                               bg-white/50 dark:bg-slate-800/50 backdrop-blur-sm
+                               focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 
+                               focus:border-transparent outline-none transition-all duration-200
+                               text-slate-800 dark:text-blue-200"
+                      placeholder="How can we help you?"
+                    ></textarea>
+                  </div>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <button
+                      type="submit"
+                      className="w-full px-8 py-4 rounded-xl bg-gradient-to-r from-primary-500 to-primary-600
+                               hover:from-primary-600 hover:to-primary-700
+                               dark:from-primary-600 dark:to-primary-700
+                               dark:hover:from-primary-700 dark:hover:to-primary-800 
+                               text-white font-semibold shadow-lg 
+                               shadow-primary-500/25 dark:shadow-primary-900/50 
+                               transition-all duration-200"
+                    >
+                      Send Message
+                    </button>
+                  </motion.div>
+                </form>
+              </div>
+            </motion.div>
+
+            {/* Map */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl h-full min-h-[500px]"
+            >
+              <div className="absolute inset-0">
+                <Image
+                  src="/images/map-bg.jpg"
+                  alt="Office location map"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-blue-900/60 via-blue-900/20 to-transparent" />
+              </div>
+              <div className="relative h-full flex flex-col justify-end p-8">
+                <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-sm rounded-xl p-6 shadow-lg">
+                  <h3 className="text-xl font-semibold text-slate-800 dark:text-blue-200 mb-2">
+                    Our Location
+                  </h3>
+                  <p className="text-slate-600 dark:text-blue-100 mb-4">
+                    Visit us at our main office in the heart of New York City's medical district.
+                  </p>
+                  <div className="flex items-center text-blue-600 dark:text-blue-400">
+                    <span className="text-2xl mr-2">📍</span>
+                    123 Medical Plaza, Suite 100
+                    <br />
+                    New York, NY 10001
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
     </main>
